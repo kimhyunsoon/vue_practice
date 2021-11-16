@@ -1,0 +1,15 @@
+{
+	"appId": "com.example.practiceapp",
+	"appName": "practice_app",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"PushNotifications": {
+			"presentationOptions": [
+				"badge",
+				"sound",
+				"alert"
+			]
+		}
+	}
+}
