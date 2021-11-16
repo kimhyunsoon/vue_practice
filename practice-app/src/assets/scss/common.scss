@@ -1,0 +1,81 @@
+
+$noto100 : 'noto sans kr 100';
+$noto300 : 'noto sans kr 300';
+$noto500 : 'noto sans kr 500';
+
+@font-face {
+  font-family: 'noto sans kr 300';
+  src: url(../fonts/NotoSansKR-Medium.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'noto sans kr 500';
+  src: url(../fonts/NotoSansKR-Bold.otf) format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'noto sans kr 100';
+  src: url(../fonts/NotoSansKR-Thin.otf) format('opentype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+.userRegistWrap{
+  display:flex;
+  flex-wrap:wrap;
+  padding:1.5rem;
+  height:100vh;
+  align-content:space-between;
+  *{
+    margin:0;
+    padding:0;
+    letter-spacing:-.7px;
+  }
+  .verticalWrap{
+    width:100%;
+    &.bot{
+      .confirmBtn{
+        font-size:1rem;
+        height:3rem;
+        border-radius:4px;
+      }
+      .v-input--selection-controls__input input[role=checkbox]{
+        opacity: 1;
+      }
+      .v-input--selection-controls .v-input__slot > .v-label{
+        display: block;
+
+      }
+      .checkBoxWrap {
+        display: flex;
+        align-items: center;
+      }
+      .v-input--selection-controls{
+        margin-top:0;
+      }
+      
+    }
+    &.mid{
+      .v-dialog > .v-card > .v-card__text{
+        font-family: $noto300;
+        letter-spacing: -.7px;
+      }
+    }
+  }
+  .mainTitle{
+    font-size:1.8rem;
+    width:100%;
+    margin-top:2rem;
+    font-family: $noto500;
+    &+.subTitle{
+      margin-top:.4rem;
+    }
+  }
+  .subTitle{
+    font-size:1rem;
+    color:#aaa;
+    font-family: $noto100;
+  }
+}
