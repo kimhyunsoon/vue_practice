@@ -51,6 +51,12 @@ $noto500 : 'noto sans kr 500';
       .checkBoxWrap {
         display: flex;
         align-items: center;
+        .v-input--selection-controls .v-input__slot{
+          margin-bottom:5px;
+        }
+        .v-input--selection-controls__input{
+          margin-right: 2px;
+        }
       }
       .v-input--selection-controls{
         margin-top:0;

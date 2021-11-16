@@ -9,10 +9,10 @@
     </div>
     <div class="verticalWrap bot">
       <div class="checkBoxWrap">
-        <v-checkbox
+        <v-switch
           v-model="checkbox"
-        >
-        </v-checkbox>
+          inset
+        ></v-switch>
         <p><a @click="dialog = true; checkbox = false">서비스 이용약관</a>에 동의합니다.</p>
         <template>
           <div class="text-center">
