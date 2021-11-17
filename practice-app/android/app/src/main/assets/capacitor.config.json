@@ -10,6 +10,19 @@
 				"sound",
 				"alert"
 			]
+		},
+		"CapacitorFirebaseAuth": {
+			"providers": [
+				"phone"
+			],
+			"languageCode": "kr",
+			"nativeAuth": false,
+			"permissions": {
+				"google": [
+					"profile",
+					"https://www.googleapis.com/auth/drive"
+				]
+			}
 		}
 	}
 }

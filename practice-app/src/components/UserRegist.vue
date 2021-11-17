@@ -4,6 +4,7 @@
       <p class="mainTitle">[OOO] 전문가<br>주식정보 알리미를<br>시작합니다.</p>
       <p class="subTitle">{{message}}</p>
       <v-btn v-on:click="subTopic()">구독</v-btn>
+      <v-btn v-on:click="cancleTopic()">구독취소</v-btn>
     </div>
     <div class="verticalWrap mid">
     </div>
@@ -26,10 +27,6 @@
                 </v-card-title>
 
                 <v-card-text>
-                  이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플
-                  이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플
-                  이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플
-                  이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플
                   이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플
                   이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플
                   이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플 이용약관 샘플
@@ -81,6 +78,9 @@ export default {
 
     subTopic() {
       FCM.subscribeTo({ topic: 'test' }).then(() => alert('subscribed to topic'));
+    },
+    cancleTopic() {
+      FCM.unsubscribeFrom({ topic: 'test' }).then(() => alert('unsubscribed from topic'));
     },
   },
   components: {

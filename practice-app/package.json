@@ -15,6 +15,7 @@
     "@capacitor/ios": "^3.3.1",
     "@capacitor/push-notifications": "^1.0.7",
     "@mdi/font": "5.9.55",
+    "capacitor-firebase-auth": "^3.0.0",
     "core-js": "^3.6.5",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
