@@ -5,6 +5,16 @@
       <p class="subTitle">{{message}}</p>
       <v-btn v-on:click="subTopic()">구독</v-btn>
       <v-btn v-on:click="cancleTopic()">구독취소</v-btn>
+      <v-btn v-on:click="sendSMS()">sendSMS</v-btn>
+      <v-btn v-on:click="checkSMS()">checkSMS</v-btn>
+      <v-btn v-on:click="codeSent()">codeSent</v-btn>
+      <v-btn v-on:click="signIn()">signIn</v-btn>
+      <v-btn v-on:click="receiveTestFunc()">receiveTestFunc</v-btn>
+
+      <v-text-field v-model="code" label="code"></v-text-field>
+      <v-text-field v-model="verificationId" label="ver"></v-text-field>
+      <v-btn v-on:click="codeLog()">값 확인</v-btn>
+
     </div>
     <div class="verticalWrap mid">
     </div>
@@ -62,6 +72,13 @@
 
 <script>
 import { FCM } from '@capacitor-community/fcm';
+import { cfaSignInPhone } from 'capacitor-firebase-auth';
+import { cfaSignInPhoneOnCodeSent, cfaSignInPhoneOnCodeReceived } from 'capacitor-firebase-auth';
+import { User } from 'firebase/app'
+import { cfaSignIn } from 'capacitor-firebase-auth';
+
+
+// let user = new User();
 
 export default {
   name: 'UserRegist',
@@ -70,6 +87,8 @@ export default {
     message: 'ㅎㅇㅎㅇ',
     checkbox: false,
     dialog: false,
+    code: '123',
+    verificationId:'verificationId',
   }),
   methods: {
     reverseMessage() {
@@ -82,6 +101,36 @@ export default {
     cancleTopic() {
       FCM.unsubscribeFrom({ topic: 'test' }).then(() => alert('unsubscribed from topic'));
     },
+    sendSMS() {
+      cfaSignInPhone('+821084439554').subscribe(
+        user => console.log(user.phoneNumber)
+      )
+    },
+    codeSent() {
+      cfaSignInPhoneOnCodeSent().subscribe(
+        verificationId => console.log(verificationId)
+      )
+    },
+    signIn(){
+      cfaSignIn('phone', {phone:'+821084439554'}).subscribe(
+        user => console.log(user)
+      )
+    },
+    receiveTestFunc(){
+      cfaSignInPhoneOnCodeReceived()
+      .subscribe({verificationId: this.verificationId, verificationCode: this.code})
+    },
+    codeLog() {
+      console.log(this.code)
+      console.log(this.verificationId)
+    },
+    checkSMS() {
+      cfaSignInPhone('+821084439554', '123456')
+      .subscribe(user=>{
+        console.log(user)
+      })  
+    },
+
   },
   components: {
   },

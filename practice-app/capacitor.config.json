@@ -9,7 +9,7 @@
     },
     "CapacitorFirebaseAuth": {
       "providers": ["phone"],
-      "languageCode": "kr",
+      "languageCode": "ko",
       "nativeAuth": false,
 
       "permissions": {

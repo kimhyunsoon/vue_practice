@@ -15,7 +15,7 @@
 			"providers": [
 				"phone"
 			],
-			"languageCode": "kr",
+			"languageCode": "ko",
 			"nativeAuth": false,
 			"permissions": {
 				"google": [
